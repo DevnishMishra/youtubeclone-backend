@@ -1,0 +1,16 @@
+# dependencies
+node_modules
+
+# build
+dist
+
+# environment files
+.env
+.env.local
+
+# logs
+npm-debug.log*
+
+# system files
+.DS_Store
+Thumbs.db
