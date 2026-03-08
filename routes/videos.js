@@ -33,5 +33,18 @@ router.delete("/:id", verifyToken, async (req, res) => {
   await Video.findByIdAndDelete(req.params.id);
   res.json({ message: "Video deleted" });
 });
+// Search by title
+router.get("/search/:query", async (req, res) => {
+  const videos = await Video.find({
+    title: { $regex: req.params.query, $options: "i" },
+  });
+  res.json(videos);
+});
+
+// Filter by category
+router.get("/category/:cat", async (req, res) => {
+  const videos = await Video.find({ category: req.params.cat });
+  res.json(videos);
+});
 
 export default router;
