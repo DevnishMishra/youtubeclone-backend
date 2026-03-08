@@ -1,6 +1,15 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import authRoutes from "./routes/auth.js";
+import videoRoutes from "./routes/videos.js";
+import channelRoutes from "./routes/channels.js";
+import commentRoutes from "./routes/comments.js";
+
+app.use("/api/auth", authRoutes);
+app.use("/api/videos", videoRoutes);
+app.use("/api/channels", channelRoutes);
+app.use("/api/comments", commentRoutes);
 
 dotenv.config();
 const app = express();
